@@ -1,0 +1,303 @@
+/* ============================================================
+   ЭЛЛАДА — oracle: floating coin + scroll modal
+   ============================================================ */
+
+.oracle-fab {
+  position: fixed;
+  right: clamp(16px, 2.5vw, 28px);
+  bottom: clamp(16px, 2.5vw, 28px);
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(16px);
+  transition:
+    opacity .5s ease,
+    transform .5s cubic-bezier(.16, 1, .3, 1),
+    visibility .5s;
+}
+
+body.is-ready .oracle-fab {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+  transform: none;
+}
+
+.oracle-fab__coin {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  border: 2px solid #6b4e1d;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 28%, #ecd08a, #c9a66b 40%, #a9853f 70%, #7a5a22 100%);
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, .45),
+    inset 0 2px 4px rgba(255, 255, 255, .4);
+  color: #3a2a12;
+  transition: transform .4s cubic-bezier(.16, 1, .3, 1), filter .3s;
+}
+
+.oracle-fab__coin::before {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border: 1px solid rgba(201, 166, 107, .32);
+  border-radius: 50%;
+  animation: coin-pulse 3.2s ease-out infinite;
+  pointer-events: none;
+}
+
+.oracle-fab__coin::after {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  border: 1px solid rgba(58, 42, 18, .42);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.oracle-fab__coin svg {
+  width: 36px;
+  height: 36px;
+}
+
+.oracle-fab:hover .oracle-fab__coin {
+  transform: rotate(-8deg) scale(1.08);
+  filter: brightness(1.06);
+}
+
+.oracle-fab__label {
+  padding: 6px 10px;
+  border: 1px solid rgba(201, 166, 107, .25);
+  border-radius: 2px;
+  background: rgba(20, 17, 13, .88);
+  color: var(--gold-2);
+  font-size: .62rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: opacity .25s, transform .25s;
+}
+
+.oracle-fab:hover .oracle-fab__label {
+  opacity: 1;
+  transform: none;
+}
+
+@keyframes coin-pulse {
+  0%, 100% { transform: scale(1); opacity: .55; }
+  50% { transform: scale(1.14); opacity: 0; }
+}
+
+/* ---------- modal ---------- */
+
+.oracle-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+}
+
+.oracle-modal[hidden] { display: none; }
+
+.oracle-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 6, 4, .78);
+  opacity: 0;
+  transition: opacity .4s ease;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+.oracle-modal.is-open .oracle-modal__backdrop { opacity: 1; }
+
+.oracle-modal__dialog {
+  position: relative;
+  z-index: 1;
+  width: min(560px, 100%);
+  max-height: calc(100dvh - 40px);
+  overflow: auto;
+  overscroll-behavior: contain;
+  opacity: 0;
+  transform: translateY(20px) scale(.97);
+  transition:
+    opacity .4s ease,
+    transform .5s cubic-bezier(.16, 1, .3, 1);
+}
+
+.oracle-modal.is-open .oracle-modal__dialog {
+  opacity: 1;
+  transform: none;
+}
+
+.oracle-modal__close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 5;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(43, 36, 25, .3);
+  border-radius: 50%;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background .25s, color .25s;
+}
+
+.oracle-modal__close:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.oracle-scroll {
+  position: relative;
+  padding: 0;
+  background: var(--paper-3);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, .6);
+}
+
+.oracle-scroll::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--noise);
+  opacity: .05;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+.oracle-scroll__rod {
+  position: relative;
+  z-index: 2;
+  height: 14px;
+  margin: 0 -10px;
+  border-radius: 8px;
+  background: linear-gradient(180deg, #5b3a1e, #2e1c0d 50%, #6b4625);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, .35);
+}
+
+.oracle-scroll__rod--top { margin-bottom: -2px; }
+.oracle-scroll__rod--bottom { margin-top: -2px; }
+
+.oracle-scroll__body {
+  position: relative;
+  z-index: 1;
+  padding: clamp(24px, 5vw, 44px);
+  text-align: center;
+  clip-path: inset(0 0 100% 0);
+  opacity: 0;
+  transition: clip-path .5s ease, opacity .3s ease;
+}
+
+.oracle-modal.is-open .oracle-scroll__body {
+  clip-path: inset(0);
+  opacity: 1;
+  transition:
+    clip-path .8s cubic-bezier(.16, 1, .3, 1) .1s,
+    opacity .4s ease .3s;
+}
+
+.oracle-scroll__owl {
+  width: 54px;
+  height: 54px;
+  margin: 0 auto .6rem;
+  color: var(--red);
+}
+
+.oracle-scroll__kicker {
+  margin: 0 0 .3rem;
+  font-size: .62rem;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  color: var(--red);
+}
+
+.oracle-scroll__kicker span { color: var(--gold); }
+
+.oracle-scroll h2 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.oracle-scroll__rule {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 1rem 0;
+  color: var(--red);
+}
+
+.oracle-scroll__rule::before,
+.oracle-scroll__rule::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+
+.oracle-scroll__rule span { font-size: .6rem; }
+
+.oracle-scroll__greek {
+  margin: 0 0 .5rem;
+  font-family: var(--font-greek);
+  font-size: clamp(1.15rem, 3vw, 1.65rem);
+  letter-spacing: .12em;
+  color: var(--red);
+}
+
+.oracle-scroll blockquote {
+  margin: 0 0 .8rem;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.45rem, 4vw, 1.95rem);
+  line-height: 1.2;
+}
+
+.oracle-scroll__note {
+  margin: 0 0 1.4rem;
+  font-size: clamp(.78rem, .9vw, .86rem);
+  line-height: 1.55;
+  color: var(--ink-2);
+}
+
+.oracle-scroll__hint {
+  margin: 1rem 0 0;
+  font-size: clamp(.6rem, .7vw, .68rem);
+  font-style: italic;
+  color: var(--ink-3);
+}
+
+.oracle-scroll__body.is-changing #oracleGreek,
+.oracle-scroll__body.is-changing #oracleText,
+.oracle-scroll__body.is-changing #oracleNote {
+  opacity: 0;
+  transform: translateY(6px);
+}
+
+#oracleGreek,
+#oracleText,
+#oracleNote {
+  transition: opacity .18s ease, transform .18s ease;
+}
+
+body.is-oracle-open { overflow: hidden; }

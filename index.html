@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ЭЛЛАДА — газета древнего мира</title>
+  <meta name="description" content="Интерактивная газета о Древней Греции: демократия, наука, философия, театр, Олимпийские игры и оракул. Разверните газету — и отправляйтесь в V век до н. э.">
+  <meta name="theme-color" content="#14110d">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="ЭЛЛАДА — газета древнего мира">
+  <meta property="og:description" content="Древняя Греция как газета, которую нужно развернуть: демократия, атомы, оракулы и олимпийские боги.">
+  <meta property="og:image" content="https://samprav67-bit.github.io/hellas-daily/assets/img/hero-acropolis.jpg">
+  <meta property="og:url" content="https://samprav67-bit.github.io/hellas-daily/">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/fonts/fonts.css">
+  <link rel="preload" href="assets/fonts/old-standard-tt-700-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/old-standard-tt-700-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/pt-serif-400-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/pt-serif-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/img/hero-acropolis.jpg" as="image">
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/intro.css">
+  <link rel="stylesheet" href="css/paper.css">
+  <link rel="stylesheet" href="css/sections.css">
+  <link rel="stylesheet" href="css/oracle.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <noscript>
+    <style>
+      .intro { display: none !important; }
+      body.is-locked { height: auto !important; overflow: auto !important; }
+      .skip-link { visibility: visible !important; }
+      .reveal { opacity: 1 !important; transform: none !important; }
+      .reveal .photo { clip-path: none !important; }
+      @media (max-width: 1020px) {
+        .topbar__nav {
+          position: static;
+          max-height: none;
+          padding: 8px 0;
+          flex-direction: row;
+          flex-wrap: wrap;
+          visibility: visible;
+          pointer-events: auto;
+          overflow: visible;
+        }
+        .topbar__menu { display: none; }
+      }
+    </style>
+  </noscript>
+</head>
+<body class="is-locked">
+
+  <a class="skip-link" href="#front">Перейти к содержанию</a>
+
+  <!-- SVG sprite -->
+  <svg class="sprite" aria-hidden="true" focusable="false">
+    <defs>
+      <pattern id="meander-ink" width="26" height="14" patternUnits="userSpaceOnUse">
+        <path d="M0 2h22v10H4V6h14v2H8" fill="none" stroke="#2b2419" stroke-width="1.1"/>
+      </pattern>
+      <pattern id="meander-red" width="26" height="14" patternUnits="userSpaceOnUse">
+        <path d="M0 2h22v10H4V6h14v2H8" fill="none" stroke="#8e2f21" stroke-width="1.1"/>
+      </pattern>
+      <pattern id="meander-gold" width="26" height="14" patternUnits="userSpaceOnUse">
+        <path d="M0 2h22v10H4V6h14v2H8" fill="none" stroke="#c9a66b" stroke-width="1.1"/>
+      </pattern>
+    </defs>
+
+    <symbol id="i-owl" viewBox="0 0 120 120">
+      <circle cx="60" cy="60" r="56" fill="none" stroke="currentColor" stroke-width="2"/>
+      <circle cx="60" cy="60" r="50" fill="none" stroke="currentColor" stroke-width=".8" stroke-dasharray="1 4" opacity=".65"/>
+      <g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M60 31c-12 0-21 9-21 22v22c0 7 5 12 12 12h18c7 0 12-5 12-12V53c0-13-9-22-21-22Z"/>
+        <path d="M43 38l-5-9 10 4M77 38l5-9-10 4"/>
+        <circle cx="52" cy="53" r="7.5"/>
+        <circle cx="68" cy="53" r="7.5"/>
+        <path d="M60 57l-3.5 6.5h7Z" fill="currentColor"/>
+        <path d="M42 62c-3 7-2 14 3 19M78 62c3 7 2 14-3 19"/>
+        <path d="M53 87v6M67 87v6M48 93h10M62 93h10"/>
+        <path d="M29 33c6 1 10 6 11 12"/>
+      </g>
+      <circle cx="52" cy="53" r="2.1" fill="currentColor"/>
+      <circle cx="68" cy="53" r="2.1" fill="currentColor"/>
+      <g fill="currentColor">
+        <ellipse cx="27" cy="35" rx="3.4" ry="1.5" transform="rotate(-35 27 35)"/>
+        <ellipse cx="30" cy="40" rx="3.4" ry="1.5" transform="rotate(-55 30 40)"/>
+        <ellipse cx="34" cy="44" rx="3.4" ry="1.5" transform="rotate(-75 34 44)"/>
+      </g>
+      <text x="89" y="42" font-family="Georgia, 'Times New Roman', serif" font-size="8.5" fill="currentColor" text-anchor="middle">ΑΘΕ</text>
+    </symbol>
+
+    <symbol id="i-laurel" viewBox="0 0 160 48">
+      <path d="M2 44C40 42 92 30 158 6" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+      <g fill="currentColor">
+        <ellipse cx="16" cy="34" rx="8" ry="2.6" transform="rotate(-32 16 34)"/>
+        <ellipse cx="30" cy="42" rx="8" ry="2.6" transform="rotate(18 30 42)"/>
+        <ellipse cx="50" cy="30" rx="8" ry="2.6" transform="rotate(-30 50 30)"/>
+        <ellipse cx="64" cy="37" rx="8" ry="2.6" transform="rotate(18 64 37)"/>
+        <ellipse cx="84" cy="24" rx="8" ry="2.6" transform="rotate(-28 84 24)"/>
+        <ellipse cx="98" cy="30" rx="8" ry="2.6" transform="rotate(20 98 30)"/>
+        <ellipse cx="118" cy="17" rx="8" ry="2.6" transform="rotate(-26 118 17)"/>
+        <ellipse cx="132" cy="22" rx="8" ry="2.6" transform="rotate(22 132 22)"/>
+        <ellipse cx="150" cy="9" rx="7" ry="2.4" transform="rotate(-30 150 9)"/>
+      </g>
+    </symbol>
+
+    <symbol id="i-sun" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.4"/>
+      <g stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+        <path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"/>
+      </g>
+    </symbol>
+  </svg>
+
+  <!-- INTRO -->
+  <div class="intro" id="intro">
+    <div class="intro__bg" aria-hidden="true"></div>
+    <div class="intro__glow" aria-hidden="true"></div>
+    <div class="intro__dust" aria-hidden="true"></div>
+    <div class="intro__vignette" aria-hidden="true"></div>
+
+    <div class="intro__stage">
+      <p class="intro__overline">ΑΘΗΝΑΙ <span>•</span> ΕΛΛΑΣ <span>•</span> 431 π.Χ.</p>
+
+      <div class="fold-wrap" id="foldWrap">
+        <div class="fold" id="fold">
+
+          <div class="fold__half fold__half--left">
+            <div class="cover-left">
+              <p class="cover-left__top">Η ΕΛΛΑΣ <span>•</span> ΕΦΗΜΕΡΙΣ</p>
+              <h2 class="cover-left__mark">ΕΛΛΑΣ</h2>
+              <p class="cover-left__sub">ГАЗЕТА ДРЕВНЕГО МИРА</p>
+              <div class="cover-rule cover-rule--double"></div>
+              <p class="cover-left__kicker">ΑΘΗΝΑΙ <span>•</span> ΠΟΛΙΣ</p>
+              <h3 class="cover-left__headline">Афины: город, где родилась демократия</h3>
+              <p class="cover-left__text">Двести пятьдесят тысяч жителей, один Акрополь и идея, которая пережила империи.</p>
+              <p class="cover-left__text">Как маленький полис придумал политику, философию и театр — и почему мы до сих пор говорим его словами.</p>
+              <div class="cover-left__foot">Выпуск № 1 <span>•</span> Цена: 1 обол</div>
+            </div>
+          </div>
+
+          <div class="fold__half fold__half--right" id="foldFlap">
+            <div class="fold__face fold__face--front">
+              <figure class="cover-photo">
+                <img src="assets/img/hero-acropolis.jpg" alt="Акрополь и Парфенон в ночной подсветке">
+                <figcaption>Акрополь. Ночь. V век до н. э.</figcaption>
+              </figure>
+              <div class="cover-photo__note">В этом выпуске: наука, философия, театр, Олимпийские игры и оракул.</div>
+            </div>
+
+            <div class="fold__face fold__face--back">
+              <div class="cover-back">
+                <p class="cover-back__top">Η ΕΛΛΑΣ <span>•</span> ΑΘΗΝΑΙ</p>
+                <svg class="cover-back__owl" aria-hidden="true"><use href="#i-owl"/></svg>
+                <h1 class="cover-back__title">ЭЛЛАДА</h1>
+                <p class="cover-back__sub">ГАЗЕТА ДРЕВНЕГО МИРА</p>
+                <div class="cover-rule"><span></span></div>
+                <p class="cover-back__teaser">Демократия, атомы, оракулы<br>и олимпийские боги</p>
+
+                <div class="seal-wrap">
+                  <span class="seal-ribbon seal-ribbon--left" aria-hidden="true"></span>
+                  <span class="seal-ribbon seal-ribbon--right" aria-hidden="true"></span>
+                  <button class="wax-seal" id="openPaper" type="button" aria-label="Развернуть газету">
+                    <span class="wax-seal__cracks" aria-hidden="true">
+                      <svg viewBox="0 0 120 120"><path d="M60 14l-6 28 14 10-9 22 11 12-6 20"/><path d="M42 34l18 12-5 18"/><path d="M78 36L66 52l8 16"/></svg>
+                    </span>
+                    <svg class="wax-seal__owl" aria-hidden="true"><use href="#i-owl"/></svg>
+                    <span class="wax-seal__mark">ΕΛΛΑΣ</span>
+                  </button>
+                </div>
+
+                <p class="cover-back__hint"><span class="hint-arrow">↓</span> нажмите, чтобы развернуть</p>
+                <p class="cover-back__foot">Выпуск № 1 <span>•</span> 431 г. до н. э.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="fold__crease" aria-hidden="true"></div>
+        </div>
+      </div>
+
+      <button class="intro__skip" id="skipIntro" type="button">Пропустить <span>→</span></button>
+    </div>
+  </div>
+
+  <!-- SITE -->
+  <div class="site" id="site">
+
+    <header class="topbar" id="topbar">
+      <div class="topbar__inner">
+        <a class="topbar__brand" href="#top" aria-label="Эллада — наверх">
+          <svg class="topbar__owl" aria-hidden="true"><use href="#i-owl"/></svg>
+          <span class="topbar__greek" lang="el">ΕΛΛΑΣ</span>
+          <span class="topbar__ru">ЭЛЛАДА</span>
+        </a>
+
+        <nav class="topbar__nav" id="nav" aria-label="Разделы газеты">
+          <a href="#front">Главное</a>
+          <a href="#science">Наука</a>
+          <a href="#philosophy">Философия</a>
+          <a href="#theatre">Театр</a>
+          <a href="#timeline">Хроника</a>
+          <a href="#life">Быт</a>
+          <a href="#legacy">Наследие</a>
+          <button class="topbar__oracle-link" type="button" data-oracle-open>Оракул</button>
+        </nav>
+
+        <div class="topbar__right">
+          <span class="topbar__era">V в. до н. э.</span>
+          <button class="topbar__oracle" type="button" data-oracle-open>
+            <svg aria-hidden="true"><use href="#i-owl"/></svg>
+            <span>Оракул</span>
+          </button>
+          <button class="topbar__menu" id="menuBtn" type="button" aria-controls="nav" aria-expanded="false" aria-label="Открыть меню">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+      <div class="progress" id="progress" aria-hidden="true"></div>
+    </header>
+
+    <main class="newspaper" id="top">
+
+      <header class="masthead">
+        <div class="masthead__strip">
+          <span>ΑΘΗΝΑΙ <i>•</i> ΕΛΛΑΣ</span>
+          <span>ВЫПУСК № 1</span>
+          <span>ЦЕНА: 1 ОБОЛ</span>
+        </div>
+
+        <div class="masthead__main">
+          <svg class="masthead__laurel masthead__laurel--left" aria-hidden="true"><use href="#i-laurel"/></svg>
+          <div class="masthead__title">
+            <svg class="masthead__owl" aria-hidden="true"><use href="#i-owl"/></svg>
+            <p class="masthead__greek" lang="el">Η ΕΛΛΑΣ</p>
+            <h1>ЭЛЛАДА</h1>
+            <p class="masthead__sub">ГАЗЕТА ДРЕВНЕГО МИРА</p>
+          </div>
+          <svg class="masthead__laurel masthead__laurel--right" aria-hidden="true"><use href="#i-laurel"/></svg>
+        </div>
+
+        <div class="masthead__meta">
+          <span>Афины, месяц Гекатомбеон</span>
+          <i>•</i>
+          <span>эпоха Перикла</span>
+          <i>•</i>
+          <span>V век до н. э.</span>
+        </div>
+        <p class="masthead__motto">«Познай самого себя» — надпись у входа в храм Аполлона в Дельфах</p>
+        <svg class="meander meander--red" aria-hidden="true"><rect width="100%" height="100%" fill="url(#meander-red)"/></svg>
+      </header>
+
+      <!-- FRONT -->
+      <section class="section section--front" id="front" tabindex="-1">
+        <div class="front__head reveal">
+          <p class="kicker">ΑΘΗΝΑΙ <span>•</span> ΠΟΛΙΣ</p>
+          <h2 class="front__headline">Афины: город,<br>где родилась <em>демократия</em></h2>
+          <p class="front__standfirst">Двести пятьдесят тысяч жителей, один Акрополь и идея, которая пережила империи. Как маленький полис придумал политику, философию и театр — и почему мы до сих пор говорим его словами.</p>
+          <div class="byline">
+            <span>Из Афин</span>
+            <span>собственный корреспондент «Эллады»</span>
+            <span>V век до н. э.</span>
+          </div>
+        </div>
+
+        <div class="front__grid">
+          <figure class="front__photo reveal">
+            <div class="photo photo--wide">
+              <img src="assets/img/hero-acropolis.jpg" alt="Акрополь и Парфенон в ночной подсветке, Афины" fetchpriority="high">
+            </div>
+            <figcaption>Акрополь и Парфенон в ночной подсветке. Парфенон строили с 447 по 432 год до н. э. — пятнадцать лет, которые задали масштаб европейской архитектуре.</figcaption>
+          </figure>
+
+          <aside class="front__aside reveal">
+            <div class="factbox">
+              <p class="box-title">Афины в цифрах</p>
+              <div class="stat"><span class="stat__num">250 000</span><span class="stat__text">жителей в Афинах и Аттике</span></div>
+              <div class="stat"><span class="stat__num">30 000</span><span class="stat__text">граждан с правом голоса</span></div>
+              <div class="stat"><span class="stat__num">6 000</span><span class="stat__text">судей в народном суде</span></div>
+              <div class="stat"><span class="stat__num">15</span><span class="stat__text">лет строили Парфенон</span></div>
+              <div class="stat"><span class="stat__num">17 000</span><span class="stat__text">мест в театре Диониса</span></div>
+            </div>
+
+            <div class="weather">
+              <div class="weather__head">
+                <svg aria-hidden="true"><use href="#i-sun"/></svg>
+                <p class="box-title">Погода в Афинах</p>
+              </div>
+              <p class="weather__temp">+26° <span>ясно</span></p>
+              <p class="weather__text">Ветер с Эгейского моря, 3 узла. В тени Агоры прохладнее — там и спорят.</p>
+              <p class="weather__small">Завтра: возможны философские дискуссии.</p>
+            </div>
+
+            <div class="issue-index">
+              <p class="box-title">В этом выпуске</p>
+              <a href="#science"><span>II. Наука и разум</span><span class="leader"></span><span>2</span></a>
+              <a href="#philosophy"><span>III. Философия</span><span class="leader"></span><span>3</span></a>
+              <a href="#theatre"><span>IV. Театр и игры</span><span class="leader"></span><span>4</span></a>
+              <a href="#timeline"><span>V. Хроника</span><span class="leader"></span><span>5</span></a>
+              <a href="#life"><span>VI. Быт</span><span class="leader"></span><span>6</span></a>
+              <a href="#legacy"><span>VII. Наследие</span><span class="leader"></span><span>7</span></a>
+            </div>
+          </aside>
+
+          <div class="front__text reveal">
+            <p><span class="dropcap">В</span> 508 году до н. э. афинянин Клисфен сделал то, что до него не решался никто: разделил граждан не по знатности, а по месту жительства. Так родилась демократия — власть демоса, народа. На центральной площади, Агоре, любой свободный гражданин мог поднять руку и сказать своё слово. Решения принимало собрание, а не царь и не жрец.</p>
+            <p>Афины V века — это не только политика. Это Парфенон, построенный за пятнадцать лет; это трагедии Софокла, которые смотрели тысячи людей; это Сократ, гулявший по рынку и задававший неудобные вопросы. Город жил войной и торговлей, спорил о богах и законах — и в этих спорах придумывал себя.</p>
+            <p class="pullquote">«Власть народа» — дословно: κράτος τοῦ δήμου. Греки придумали не только слово, но и привычку спорить о том, как устроена власть.</p>
+            <p>Демократия была несовершенной: женщины, рабы и переселенцы не голосовали. Но сама мысль, что власть можно делить и обсуждать, оказалась сильнее любых стен. Через две с половиной тысячи лет мы всё ещё разворачиваем эту газету.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SCIENCE -->
+      <section class="section" id="science">
+        <header class="section-head reveal">
+          <span class="section-head__num">II</span>
+          <div class="section-head__titles">
+            <p class="section-head__greek" lang="el">ΕΠΙΣΤΗΜΗ</p>
+            <h2>Наука и разум</h2>
+          </div>
+          <span class="section-head__rule"></span>
+          <span class="section-head__page">стр. 2</span>
+        </header>
+
+        <div class="split split--science">
+          <div class="split__text reveal">
+            <p class="lead"><span class="dropcap">В</span> III веке до н. э. Эратосфен Киренский заметил: в полдень в Сиене, сегодняшнем Асуане, солнечный свет падает в колодец отвесно, а в Александрии тот же столб отбрасывает тень под углом 7,2°. Расстояние между городами он знал. Оставалась арифметика: 7,2° — это 1/50 окружности. Умножив путь на 50, Эратосфен получил около 39 400 км. Современное значение — 40 075 км. Ошибка — меньше двух процентов.</p>
+            <p>Греки не разделяли науку и философию: одно слово — «эпистеме» — означало и знание, и умение. Они спорили, из чего состоит мир (Демокрит сказал: из атомов), как движутся планеты (Аристарх предположил, что вокруг Солнца), и почему болит голова (Гиппократ искал причину в природе, а не в гневе богов).</p>
+            <p>Самое поразительное — Антикитерский механизм. Бронзовый ящик с тридцатью шестернями, поднятый со дна моря в 1901 году, предсказывал солнечные и лунные затмения, фазы Луны и положение планет. Это не астрология: это математика, воплощённая в металле.</p>
+
+            <div class="bigstat">
+              <div class="bigstat__top"><span class="bigstat__num">39 400</span><span class="bigstat__unit">км</span></div>
+              <p>окружность Земли по Эратосфену. Современное значение — 40 075 км.</p>
+            </div>
+          </div>
+
+          <aside class="split__aside reveal">
+            <figure>
+              <div class="photo photo--landscape">
+                <img src="assets/img/antikythera.jpg" alt="Фрагменты Антикитерского механизма в Национальном археологическом музее Афин" loading="lazy">
+              </div>
+              <figcaption>Фрагменты Антикитерского механизма, II век до н. э. Национальный археологический музей Афин.</figcaption>
+            </figure>
+            <div class="note">
+              <p class="box-title">Справка</p>
+              <p>Механизм нашли в 1901 году среди обломков корабля у острова Антикитера. Внутри — бронзовые шестерни, надписи и шкалы. Ничего сопоставимого по сложности не появится ещё больше тысячи лет.</p>
+            </div>
+          </aside>
+        </div>
+
+        <div class="facts-grid reveal">
+          <article class="fact-card">
+            <span class="fact-card__num">01</span>
+            <h3>Эратосфен</h3>
+            <p class="fact-card__years">ок. 240 г. до н. э.</p>
+            <p>Измерил окружность Земли по тени — с точностью до двух процентов.</p>
+          </article>
+          <article class="fact-card">
+            <span class="fact-card__num">02</span>
+            <h3>Аристарх Самосский</h3>
+            <p class="fact-card__years">ок. 270 г. до н. э.</p>
+            <p>Первым поставил Солнце в центр мира — за 1800 лет до Коперника.</p>
+          </article>
+          <article class="fact-card">
+            <span class="fact-card__num">03</span>
+            <h3>Демокрит</h3>
+            <p class="fact-card__years">ок. 400 г. до н. э.</p>
+            <p>Придумал атомы: неделимые частицы, из которых состоит всё.</p>
+          </article>
+          <article class="fact-card">
+            <span class="fact-card__num">04</span>
+            <h3>Архимед</h3>
+            <p class="fact-card__years">287–212 гг. до н. э.</p>
+            <p>Сформулировал закон рычага и закон плавучести; изобрёл винт и военные машины.</p>
+          </article>
+          <article class="fact-card">
+            <span class="fact-card__num">05</span>
+            <h3>Гиппократ</h3>
+            <p class="fact-card__years">ок. 400 г. до н. э.</p>
+            <p>Отделил медицину от религии: у болезни есть природная причина.</p>
+          </article>
+          <article class="fact-card">
+            <span class="fact-card__num">06</span>
+            <h3>Евклид</h3>
+            <p class="fact-card__years">ок. 300 г. до н. э.</p>
+            <p>Собрал геометрию в «Начала» — учебник, по которому учились две тысячи лет.</p>
+          </article>
+        </div>
+
+        <div class="dark-band reveal">
+          <div class="dark-band__head">
+            <p class="kicker kicker--gold">ΤΕΧΝΗ <span>•</span> ΤΕΧΝΟΛΟΓΙΑ</p>
+            <h3>Технологии, которые опередили время</h3>
+          </div>
+          <div class="dark-band__grid">
+            <div class="dark-fact"><span>01</span><h4>Земля — шар</h4><p>Пифагор и Аристотель приводили доказательства: тень Земли на Луне круглая.</p></div>
+            <div class="dark-fact"><span>02</span><h4>Паровая турбина</h4><p>Герон Александрийский построил эолипил — прообраз парового двигателя.</p></div>
+            <div class="dark-fact"><span>03</span><h4>Автомат с водой</h4><p>Тот же Герон придумал устройство, которое продавало святую воду за монету.</p></div>
+            <div class="dark-fact"><span>04</span><h4>Тёплый пол</h4><p>В Эфесе дома обогревались горячим воздухом под полом — гипокауст.</p></div>
+            <div class="dark-fact"><span>05</span><h4>Будильник</h4><p>Водяные часы с сигналом приписывают Платону. Утро начиналось по расписанию.</p></div>
+            <div class="dark-fact"><span>06</span><h4>Анатомия</h4><p>Герофил и Эрасистрат описали нервы и мозг, вскрывая тела в Александрии.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PHILOSOPHY -->
+      <section class="section" id="philosophy">
+        <header class="section-head reveal">
+          <span class="section-head__num">III</span>
+          <div class="section-head__titles">
+            <p class="section-head__greek" lang="el">ΦΙΛΟΣΟΦΙΑ</p>
+            <h2>Любовь к мудрости</h2>
+          </div>
+          <span class="section-head__rule"></span>
+          <span class="section-head__page">стр. 3</span>
+        </header>
+
+        <blockquote class="megaquote reveal">
+          <span class="megaquote__mark">“</span>
+          <p>Я знаю, что ничего не знаю.</p>
+          <cite>Сократ, по свидетельству Платона</cite>
+        </blockquote>
+
+        <div class="split split--philosophy">
+          <figure class="philosophy__portrait reveal">
+            <div class="photo photo--portrait">
+              <img src="assets/img/socrates.jpg" alt="Мраморный бюст Сократа, Лувр" loading="lazy">
+            </div>
+            <figcaption>Сократ. Мраморный бюст, Лувр. Он не написал ни строки — и стал одним из самых цитируемых людей в истории.</figcaption>
+          </figure>
+
+          <div class="split__text reveal">
+            <p class="lead"><span class="dropcap">С</span>ократ не написал ни строки. Он ходил по Агоре и спрашивал: что такое справедливость? что такое добро? почему ты думаешь, что знаешь? Его ученик Платон записал эти разговоры — и придумал мир идей, где всё земное лишь тень совершенного. Ученик Платона Аристотель пошёл дальше: он не искал идеальный мир, а начал описывать этот — животных, растения, государства, театр.</p>
+            <p>В 387 году до н. э. Платон основал Академию — первую в Европе школу, где учили не ремеслу, а мышлению. В 335 году Аристотель открыл Ликей. Греки не отделяли философию от жизни: этика была практикой, а счастье — не чувством, а делом.</p>
+            <p>Философия родилась не в храме, а на рынке. Она была разговором, спором, вопросом без готового ответа. Поэтому она и работает до сих пор.</p>
+          </div>
+        </div>
+
+        <div class="questions reveal">
+          <article class="question-card">
+            <span class="question-card__num">01</span>
+            <h3>Что такое справедливость?</h3>
+            <p>Сократ: справедливость — когда каждый делает своё дело и не мешает другим. Платон: справедливое государство — то, где правит мудрость, а не сила.</p>
+            <span class="question-card__who">Сократ, Платон</span>
+          </article>
+          <article class="question-card">
+            <span class="question-card__num">02</span>
+            <h3>Что такое счастье?</h3>
+            <p>Аристотель: счастье — это деятельность души, согласная с добродетелью. Не подарок судьбы, а работа.</p>
+            <span class="question-card__who">Аристотель</span>
+          </article>
+          <article class="question-card">
+            <span class="question-card__num">03</span>
+            <h3>Как жить правильно?</h3>
+            <p>Эпикур: удовольствие — это отсутствие страдания. Зенон: жить согласно природе. Диоген: не зависеть от вещей.</p>
+            <span class="question-card__who">Эпикур, Зенон, Диоген</span>
+          </article>
+        </div>
+      </section>
+
+      <!-- THEATRE -->
+      <section class="section" id="theatre">
+        <header class="section-head reveal">
+          <span class="section-head__num">IV</span>
+          <div class="section-head__titles">
+            <p class="section-head__greek" lang="el">ΘΕΑΤΡΟΝ <span>•</span> ΑΓΩΝ</p>
+            <h2>Театр и игры</h2>
+          </div>
+          <span class="section-head__rule"></span>
+          <span class="section-head__page">стр. 4</span>
+        </header>
+
+        <figure class="feature reveal">
+          <img src="assets/img/epidaurus.jpg" alt="Античный театр в Эпидавре, каменные скамьи и сцена" loading="lazy">
+          <div class="feature__overlay"></div>
+          <figcaption class="feature__caption">
+            <p class="kicker kicker--paper">ΕΠΙΔΑΥΡΟΣ <span>•</span> IV ВЕК ДО Н. Э.</p>
+            <h3>Театр, где слышно,<br>как падает драхма</h3>
+            <p>Четырнадцать тысяч мест. Акустика такова, что с последнего ряда слышно, как актёр шепчет. Греки объясняли это гармонией пропорций; современные акустики — отражением звука от каменных скамей.</p>
+          </figcaption>
+        </figure>
+
+        <div class="split split--theatre">
+          <div class="split__text reveal">
+            <p class="lead"><span class="dropcap">Т</span>еатр родился из ритуала в честь Диониса. На Великих Дионисиях показывали трагедии и комедии; победителя выбирали зрители. Эсхил, Софокл, Еврипид и Аристофан писали для одного праздника — и создали язык, на котором театр говорит до сих пор.</p>
+            <p>Актёры играли в масках, чтобы голос звучал громче, а лицо становилось общим для всех. В одном актёре могло быть несколько ролей; женщинам играть было нельзя. Но именно на этой сцене впервые прозвучали вопросы, которые мы задаём себе каждый день: что такое судьба? можно ли ей сопротивляться? кто виноват — человек или боги?</p>
+            <div class="theatre-stats">
+              <div><span>14 000</span><p>мест в Эпидавре</p></div>
+              <div><span>3</span><p>дня главного праздника</p></div>
+              <div><span>2</span><p>актёра на сцене — уже событие</p></div>
+            </div>
+          </div>
+          <aside class="split__aside reveal">
+            <div class="note note--red">
+              <p class="box-title">Крылатое слово</p>
+              <p class="note__greek">«Катарсис»</p>
+              <p>Так Аристотель назвал очищение, которое зритель переживает в конце трагедии. Театр не развлекал — он лечил.</p>
+            </div>
+            <div class="note">
+              <p class="box-title">Кто есть кто</p>
+              <p><strong>Эсхил</strong> — отец трагедии. <strong>Софокл</strong> — мастер судьбы. <strong>Еврипид</strong> — психолог. <strong>Аристофан</strong> — первый комик, который не боялся шутить о власти.</p>
+            </div>
+          </aside>
+        </div>
+
+        <div class="games reveal">
+          <div class="games__text">
+            <p class="kicker">ΟΛΥΜΠΙΑ <span>•</span> 776 г. до н. э.</p>
+            <h3>Пять дней перемирия</h3>
+            <p>Первые Олимпийские игры прошли в 776 году до н. э. в Олимпии. На время игр объявляли экехейрию — священное перемирие: войны останавливались, чтобы атлеты могли добраться до святилища. Победитель получал не золото, а венок из ветвей дикой оливы. Но его имя высекали на камне — и он становился героем на всю жизнь.</p>
+            <p>Бег, прыжок, метание копья и диска, борьба — пентатлон. Гонки на колесницах, кулачный бой, панкратион. Женщины к играм не допускались, но для них устраивали отдельный праздник — Герайи.</p>
+            <a class="text-link" href="#timeline">Хроника игр и полисов <span>→</span></a>
+          </div>
+          <figure class="games__photo">
+            <div class="photo photo--portrait">
+              <img src="assets/img/discobolus.jpg" alt="Статуя Дискобола в Национальном римском музее" loading="lazy">
+            </div>
+            <figcaption>Дискобол. Римская копия греческого оригинала V века до н. э. Национальный римский музей.</figcaption>
+          </figure>
+          <div class="games__facts">
+            <div><span>776</span><p>год первых игр</p></div>
+            <div><span>5</span><p>дней длились игры</p></div>
+            <div><span>40 000</span><p>зрителей собиралось в Олимпии</p></div>
+            <div><span>0</span><p>денежных призов — только слава</p></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TIMELINE -->
+      <section class="section" id="timeline">
+        <header class="section-head reveal">
+          <span class="section-head__num">V</span>
+          <div class="section-head__titles">
+            <p class="section-head__greek" lang="el">ΧΡΟΝΟΣ</p>
+            <h2>Хроника</h2>
+          </div>
+          <span class="section-head__rule"></span>
+          <span class="section-head__page">стр. 5</span>
+        </header>
+
+        <div class="timeline-intro reveal">
+          <p class="lead">Двенадцать поворотов истории — от дворцов Крита до римского Коринфа. Прокрутите хронику вбок: время здесь идёт слева направо.</p>
+          <div class="timeline-nav">
+            <button type="button" id="timelinePrev" aria-label="Предыдущие события">←</button>
+            <button type="button" id="timelineNext" aria-label="Следующие события">→</button>
+          </div>
+        </div>
+
+        <div class="timeline reveal" id="timelineScroll" role="region" tabindex="0" aria-label="Хронология Древней Греции">
+          <article class="timeline__item">
+            <span class="timeline__year">ок. 3000–1450</span>
+            <h3>Минойская цивилизация</h3>
+            <p>Крит, дворцы Кносса, фрески с дельфинами, линейное письмо А. Первая великая культура Эгеиды.</p>
+          </article>
+          <article class="timeline__item">
+            <span class="timeline__year">ок. 1600–1100</span>
+            <h3>Микены</h3>
+            <p>Львиные ворота, золото Трои, цари-воины. Микенский мир, который позже вспомнит Гомер.</p>
+          </article>
+          <article class="timeline__item">
+            <span class="timeline__year">ок. VIII в.</span>
+            <h3>Гомер</h3>
+            <p>«Илиада» и «Одиссея»: устная поэзия становится книгой, а миф — литературой.</p>
+          </article>
+          <article class="timeline__item">
+            <span class="timeline__year">776</span>
+            <h3>Первые Олимпийские игры</h3>
+            <p>Начало греческого календаря. Победитель получает оливковый венок и бессмертие в стихах.</p>
+          </article>
+          <article class="timeline__item">
+            <span class="timeline__year">508</span>
+            <h3>Реформа Клисфена</h3>
+            <p>Граждан делят по демам, а не по знатности. Рождение афинской демократии.</p>
+          </article>
+          <article class="timeline__item">
+            <span class="timeline__year">490</span>
+            <h3>Марафон</h3>
+            <p>Афиняне побеждают персов. Гонец бежит в Афины с вестью — и становится легендой.</p>
+          </article>
+          <article class="timeline__item">
+            <span class="timeline__year">480</span>
+            <h3>Фермопилы и Саламин</h3>
+            <p>Триста спартанцев и их союзники держат узкий проход. Флот Фемистокла громит персов у Саламина.</p>
+          </article>
+          <article class="timeline__item">
+            <span class="timeline__year">447–432</span>
+            <h3>Парфенон</h3>
+            <p>Акрополь получает новый силуэт. Иктин и Калликрат строят храм Афины Парфенос.</p>
+          </article>
+          <article class="timeline__item">
+            <span class="timeline__year">431–404</span>
+            <h3>Пелопоннесская война</h3>
+            <p>Афины против Спарты. Тридцать лет войны, чума и конец афинского века.</p>
+          </article>
+          <article class="timeline__item">
+            <span class="timeline__year">399</span>
+            <h3>Суд над Сократом</h3>
+            <p>Философа приговаривают к чаше цикуты. Он мог бежать — но выбрал закон.</p>
+          </article>
+          <article class="timeline__item">
+            <span class="timeline__year">336–323</span>
+            <h3>Александр Македонский</h3>
+            <p>Империя от Греции до Индии. Греческий язык и греческие города — от Египта до Афганистана.</p>
+          </article>
+          <article class="timeline__item">
+            <span class="timeline__year">146</span>
+            <h3>Рим берёт Коринф</h3>
+            <p>Греция становится римской провинцией. Но Рим влюбляется в греческую культуру — и увозит её с собой.</p>
+          </article>
+        </div>
+
+        <div class="map-feature reveal">
+          <figure>
+            <div class="photo photo--map">
+              <img src="assets/img/map-greece.jpg" alt="Карта Древней Греции и Эгейского моря V века до н. э." loading="lazy">
+            </div>
+            <figcaption>Древняя Греция и Эгейское море, V век до н. э. Карта: GreekMaps, CC BY 4.0.</figcaption>
+          </figure>
+          <div class="map-feature__text">
+            <p class="kicker">ΓΕΩΓΡΑΦΙΑ <span>•</span> ГЕОГРАФИЯ</p>
+            <h3>Не страна, а сотни полисов</h3>
+            <p>Афины, Спарта, Коринф, Фивы, Аргос, Милет, Эфес. У каждого — свои законы, боги и армия. Их объединяли язык, мифы и Олимпийские игры. Враждовать и чувствовать себя одним народом — это тоже греческое изобретение.</p>
+            <ul class="poleis">
+              <li><span>ΑΘΗΝΑΙ</span> Афины — демократия, флот, философия</li>
+              <li><span>ΣΠΑΡΤΗ</span> Спарта — армия, дисциплина, лаконизм</li>
+              <li><span>ΚΟΡΙΝΘΟΣ</span> Коринф — торговля и керамика</li>
+              <li><span>ΔΕΛΦΟΙ</span> Дельфы — оракул и центр мира</li>
+              <li><span>ΜΙΛΗΤΟΣ</span> Милет — наука и первые философы</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- LIFE -->
+      <section class="section" id="life">
+        <header class="section-head reveal">
+          <span class="section-head__num">VI</span>
+          <div class="section-head__titles">
+            <p class="section-head__greek" lang="el">ΒΙΟΣ</p>
+            <h2>Как жили афиняне</h2>
+          </div>
+          <span class="section-head__rule"></span>
+          <span class="section-head__page">стр. 6</span>
+        </header>
+
+        <div class="split split--life">
+          <div class="split__text reveal">
+            <p class="lead"><span class="dropcap">Д</span>ом среднего афинянина был скромным: глинобитные стены, внутренний двор, очаг. Зато общественная жизнь кипела на улице. Утром — рынок и Агора, днём — суд или собрание, вечером — симпосий: пир с вином, музыкой и разговорами. Вино разбавляли водой — пить неразбавленным считалось варварством.</p>
+            <p>Оливки, хлеб, сыр, рыба, инжир, мёд. Мясо — по праздникам. Одежда — хитон и гиматий, без штанов: их считали варварской одеждой. Женщины жили в гинекее, но в Спарте — иначе: спартанки получали образование, владели землёй и славились остроумием.</p>
+            <p>Греки придумали не только демократию, но и слово «школа» (σχολή — досуг), «музыка», «гимназия», «стадион», «театр», «история», «геометрия», «атом», «космос», «политика». Огромная часть нашего словаря — это греческие корни.</p>
+
+            <div class="day-schedule">
+              <p class="box-title">День афинянина</p>
+              <div class="day-schedule__row"><span>Рассвет</span><p>Лепёшка, вода из колодца, петухи и первые новости соседей.</p></div>
+              <div class="day-schedule__row"><span>Утро</span><p>Агора: рынок, судебные тяжбы, споры о политике и ценах.</p></div>
+              <div class="day-schedule__row"><span>День</span><p>Народное собрание, суд присяжных или гимнасий — по расписанию.</p></div>
+              <div class="day-schedule__row"><span>Вечер</span><p>Симпосий: разбавленное вино, флейта и разговоры до рассвета.</p></div>
+            </div>
+          </div>
+
+          <figure class="life__photo reveal">
+            <div class="photo photo--portrait">
+              <img src="assets/img/amphora.jpg" alt="Краснофигурная амфора с изображением эфеба и сатира" loading="lazy">
+            </div>
+            <figcaption>Краснофигурная амфора, 440 год до н. э. Национальный музей Варшавы. Ваза была не просто посудой — она была выставкой мифов.</figcaption>
+          </figure>
+        </div>
+
+        <div class="life-grid">
+          <div class="menu-box reveal">
+            <p class="box-title">Меню симпосия</p>
+            <p class="menu-box__greek">ΣΥΜΠΟΣΙΟΝ</p>
+            <ul>
+              <li><span>Оливки с Крита</span><span>•</span></li>
+              <li><span>Козий сыр</span><span>•</span></li>
+              <li><span>Хлеб с мёдом</span><span>•</span></li>
+              <li><span>Жареная рыба</span><span>•</span></li>
+              <li><span>Инжир</span><span>•</span></li>
+              <li><span>Вино, разбавленное водой 1:3</span><span>•</span></li>
+            </ul>
+            <p class="menu-box__note">Развлечения: флейта, лира, загадки, стихи и философский спор до рассвета. Правило трёх чаш: первая — здоровье, вторая — любовь, третья — сон.</p>
+          </div>
+
+          <figure class="olive-photo reveal">
+            <div class="photo photo--landscape">
+              <img src="assets/img/olive-tree.jpg" alt="Оливковое дерево на Крите" loading="lazy">
+            </div>
+            <figcaption>Олива. Дерево, которое кормило Грецию, освещало её и делало её богатой.</figcaption>
+          </figure>
+
+          <div class="words-box reveal">
+            <p class="box-title">Слова, которые пришли из Греции</p>
+            <div class="words">
+              <span>демократия <i>δημοκρατία</i></span>
+              <span>философия <i>φιλοσοφία</i></span>
+              <span>театр <i>θέατρον</i></span>
+              <span>олимпиада <i>Ὀλυμπιάς</i></span>
+              <span>история <i>ἱστορία</i></span>
+              <span>геометрия <i>γεωμετρία</i></span>
+              <span>атом <i>ἄτομος</i></span>
+              <span>космос <i>κόσμος</i></span>
+              <span>музыка <i>μουσική</i></span>
+              <span>школа <i>σχολή</i></span>
+              <span>стадион <i>στάδιον</i></span>
+              <span>политика <i>πολιτικά</i></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="classifieds reveal">
+          <p class="classifieds__title">ΑΓΓΕΛΙΕΣ <span>•</span> Объявления</p>
+          <div class="classifieds__grid">
+            <p><strong>Продаётся</strong> амфора с изображением Геракла. Торг у Пирейских ворот.</p>
+            <p><strong>Ищу философа</strong> для ежедневных бесед. Оплата — обедом и вниманием.</p>
+            <p><strong>Корабль в Милет</strong> отходит на рассвете. Места у борта ещё есть.</p>
+            <p><strong>Пропала сандалия</strong>, левая. Особые приметы: ремешок. Награда — оливка.</p>
+            <p><strong>Сдаётся дом</strong> с видом на Акрополь. Без шума по вечерам.</p>
+            <p><strong>Осторожно: софист.</strong> Не спорьте с ним о справедливости — он умеет говорить.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- LEGACY -->
+      <section class="legacy" id="legacy">
+        <svg class="meander meander--gold legacy__meander" aria-hidden="true"><rect width="100%" height="100%" fill="url(#meander-gold)"/></svg>
+        <div class="legacy__inner">
+          <p class="kicker kicker--gold">ΚΛΗΡΟΝΟΜΙΑ <span>•</span> НАСЛЕДИЕ</p>
+          <h2>Мы все<br>немного греки</h2>
+          <p class="legacy__lead">Греция не исчезла. Она осталась в словах, которыми мы говорим, в театрах, куда мы ходим, в судах, где мы спорим, в стадионах, где мы болеем, и в привычке задавать вопрос «а почему?». Двадцать пять веков назад несколько тысяч человек в маленьком полисе решили, что мир можно обсуждать. С тех пор ничего принципиально не изменилось — только масштаб.</p>
+
+          <div class="legacy__stats">
+            <div><span>2 500</span><p>лет демократии</p></div>
+            <div><span>24</span><p>буквы в греческом алфавите</p></div>
+            <div><span>1</span><p>идея: человек в центре мира</p></div>
+          </div>
+
+          <blockquote class="legacy__quote">
+            <p>«Человек — мера всех вещей»</p>
+            <cite>Протагор</cite>
+          </blockquote>
+
+          <button class="btn btn--gold" type="button" data-oracle-open>Спросить оракула <span>→</span></button>
+        </div>
+        <svg class="meander meander--gold legacy__meander" aria-hidden="true"><rect width="100%" height="100%" fill="url(#meander-gold)"/></svg>
+      </section>
+
+      <footer class="footer">
+        <div class="footer__top">
+          <div class="footer__brand">
+            <svg class="footer__owl" aria-hidden="true"><use href="#i-owl"/></svg>
+            <div>
+              <p class="footer__greek">Η ΕΛΛΑΣ</p>
+              <p class="footer__title">ЭЛЛАДА</p>
+              <p class="footer__sub">Газета древнего мира • выпуск № 1 • 431 г. до н. э.</p>
+            </div>
+          </div>
+          <p class="footer__note">Сделано как дань уважения истории. Даты и факты — по возможности — проверены. Газета не претендует на роль первоисточника: за подробностями — к Геродоту, Фукидиду и археологам.</p>
+        </div>
+
+        <div class="footer__links">
+          <a href="#top">Наверх ↑</a>
+          <button type="button" id="foldBack">Сложить газету</button>
+          <a href="https://github.com/samprav67-bit/hellas-daily" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+
+        <details class="credits">
+          <summary>Источники и лицензии фотографий</summary>
+          <ul>
+            <li>Акрополь ночью — Giles Laurent, CC BY-SA 4.0, Wikimedia Commons.</li>
+            <li>Бюст Сократа — копия Лисиппа, общественное достояние, Wikimedia Commons.</li>
+            <li>Театр в Эпидавре — Berthold Werner, CC BY-SA 3.0, Wikimedia Commons.</li>
+            <li>Антикитерский механизм — Zde, CC BY-SA 4.0, Wikimedia Commons.</li>
+            <li>Краснофигурная амфора — Национальный музей Варшавы, CC0, Wikimedia Commons.</li>
+            <li>Карта Древней Греции — GreekMaps | Fut.Perf., CC BY 4.0, Wikimedia Commons.</li>
+            <li>Дискобол — Livioandronico2013, CC BY-SA 4.0, Wikimedia Commons.</li>
+            <li>Оливковое дерево — Petro Stelte, CC BY-SA 4.0, Wikimedia Commons.</li>
+            <li>Шрифты: Old Standard TT, PT Serif, GFS Didot — SIL Open Font License.</li>
+          </ul>
+          <p>Сайт написан вручную на HTML, CSS и JavaScript. Без фреймворков, без трекеров, без внешних зависимостей.</p>
+        </details>
+
+        <p class="footer__colophon">— 8 —</p>
+      </footer>
+    </main>
+  </div>
+
+  <!-- ORACLE -->
+  <button class="oracle-fab" id="oracleFab" type="button" aria-label="Спросить оракула">
+    <span class="oracle-fab__coin">
+      <svg aria-hidden="true"><use href="#i-owl"/></svg>
+    </span>
+    <span class="oracle-fab__label">Оракул</span>
+  </button>
+
+  <div class="oracle-modal" id="oracleModal" hidden>
+    <div class="oracle-modal__backdrop" data-oracle-close></div>
+    <div class="oracle-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="oracleTitle">
+      <button class="oracle-modal__close" type="button" data-oracle-close aria-label="Закрыть оракула">×</button>
+      <div class="oracle-scroll">
+        <div class="oracle-scroll__rod oracle-scroll__rod--top"></div>
+        <div class="oracle-scroll__body">
+          <svg class="oracle-scroll__owl" aria-hidden="true"><use href="#i-owl"/></svg>
+          <p class="oracle-scroll__kicker">ΔΕΛΦΟΙ <span>•</span> ДЕЛЬФЫ</p>
+          <h2 id="oracleTitle">Оракул</h2>
+          <div class="oracle-scroll__rule"><span>◆</span></div>
+          <p class="oracle-scroll__greek" id="oracleGreek" lang="el">ΓΝΩΘΙ ΣΑΥΤΟΝ</p>
+          <blockquote id="oracleText" aria-live="polite" aria-atomic="true">«Познай самого себя»</blockquote>
+          <p class="oracle-scroll__note" id="oracleNote">Надпись у входа в храм Аполлона в Дельфах. Прежде чем спрашивать о будущем, загляните внутрь себя.</p>
+          <button class="btn btn--ink" type="button" id="oracleNext">Спросить ещё <span>→</span></button>
+          <p class="oracle-scroll__hint">Оракул говорит загадками. Толковать — вам.</p>
+        </div>
+        <div class="oracle-scroll__rod oracle-scroll__rod--bottom"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
