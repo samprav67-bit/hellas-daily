@@ -411,6 +411,27 @@ figure figcaption {
   color: rgba(239, 228, 204, .38);
 }
 
+.topbar__credit {
+  display: inline-flex;
+  align-items: baseline;
+  gap: .36em;
+  padding-left: clamp(12px, 1.6vw, 18px);
+  border-left: 1px solid rgba(201, 166, 107, .22);
+  font-family: var(--font-display);
+  font-size: .68rem;
+  font-style: italic;
+  letter-spacing: .04em;
+  color: rgba(239, 228, 204, .6);
+  white-space: nowrap;
+}
+
+.topbar__credit b {
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: .09em;
+  color: var(--gold-2);
+}
+
 .topbar__oracle {
   display: flex;
   align-items: center;
