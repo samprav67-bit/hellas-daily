@@ -38,6 +38,8 @@
   let maximTimer = 0;
   let oracleOpenTimer = 0;
   let oracleCloseTimer = 0;
+  let scrollEffectsReady = false;
+  let scrollEffectsStarted = false;
 
   if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
 
@@ -82,6 +84,7 @@
     if (introDone) return;
     intro.hidden = true;
     unlockSite();
+    startScrollEffects();
   }
 
   function openNewspaper() {
@@ -95,7 +98,11 @@
 
     intro.classList.add('is-breaking');
     window.setTimeout(() => fold.classList.add('is-open'), 380);
-    window.setTimeout(() => intro.classList.add('is-revealed'), 1500);
+    window.setTimeout(() => {
+      intro.classList.add('is-revealed');
+      body.classList.add('is-entering');
+      startScrollEffects();
+    }, 1500);
     window.setTimeout(finishIntro, 2420);
   }
 
@@ -105,6 +112,7 @@
 
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
     body.classList.remove('is-ready');
+    body.classList.remove('is-entering');
     body.classList.add('is-locked');
     site.inert = true;
     closeMenu();
@@ -152,12 +160,115 @@
   window.addEventListener('resize', setOpenScale, { passive: true });
 
   /* ----------------------------------------------------------
-     Reveal on scroll
+     Reveal on scroll + number counters
      ---------------------------------------------------------- */
 
   const revealItems = $$('.reveal');
 
-  if ('IntersectionObserver' in window && !reduceMotion.matches) {
+  const counterEls = $$(
+    '.stat__num, .bigstat__num, .theatre-stats div > span, .games__facts div > span, .legacy__stats div > span'
+  );
+  const counterStates = [];
+
+  function markRevealsVisible() {
+    revealItems.forEach((item) => item.classList.add('is-visible'));
+  }
+
+  function formatCounter(value) {
+    return Math.round(value)
+      .toString()
+      .replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+  }
+
+  function animateCounter(state) {
+    if (state.started || reduceMotion.matches) return;
+    state.started = true;
+
+    const width = state.el.getBoundingClientRect().width;
+    if (width > 0) state.el.style.minWidth = `${Math.ceil(width)}px`;
+
+    state.el.setAttribute('aria-label', state.original);
+    state.el.textContent = '0';
+
+    const duration = 900 + Math.min(650, String(state.target).length * 90);
+    const startedAt = performance.now();
+
+    const step = (now) => {
+      const progress = Math.min(1, (now - startedAt) / duration);
+      const eased = 1 - Math.pow(1 - progress, 3);
+
+      state.el.textContent = formatCounter(state.target * eased);
+
+      if (progress < 1) {
+        state.raf = requestAnimationFrame(step);
+        return;
+      }
+
+      state.el.textContent = state.original;
+      state.el.removeAttribute('aria-label');
+      state.el.style.minWidth = '';
+      state.el.classList.add('is-counted');
+      state.finished = true;
+    };
+
+    state.raf = requestAnimationFrame(step);
+  }
+
+  function completeCounters() {
+    counterStates.forEach((state) => {
+      if (!state.started || state.finished) return;
+
+      cancelAnimationFrame(state.raf);
+      state.el.textContent = state.original;
+      state.el.removeAttribute('aria-label');
+      state.el.style.minWidth = '';
+      state.finished = true;
+    });
+  }
+
+  function initCounters() {
+    if (!counterEls.length) return;
+
+    const candidates = counterEls
+      .map((el) => {
+        const original = el.textContent.trim();
+        const target = Number(original.replace(/\s/g, ''));
+
+        return { el, original, target, started: false, finished: false, raf: 0 };
+      })
+      .filter((state) => Number.isFinite(state.target) && state.target > 0);
+
+    if (!candidates.length) return;
+
+    const counterObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+
+          const state = counterStates.find((item) => item.el === entry.target);
+          if (state) animateCounter(state);
+
+          counterObserver.unobserve(entry.target);
+        });
+      },
+      { rootMargin: '0px 0px -5% 0px', threshold: 0.25 }
+    );
+
+    candidates.forEach((state) => {
+      counterStates.push(state);
+      counterObserver.observe(state.el);
+    });
+  }
+
+  function startScrollEffects() {
+    if (!scrollEffectsReady || scrollEffectsStarted) return;
+    scrollEffectsStarted = true;
+
+    if (!('IntersectionObserver' in window) || reduceMotion.matches) {
+      markRevealsVisible();
+      return;
+    }
+
     const revealObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -171,9 +282,11 @@
     );
 
     revealItems.forEach((item) => revealObserver.observe(item));
-  } else {
-    revealItems.forEach((item) => item.classList.add('is-visible'));
+    initCounters();
   }
+
+  scrollEffectsReady = true;
+  if (introDone) startScrollEffects();
 
   /* ----------------------------------------------------------
      Mobile menu
@@ -506,7 +619,8 @@
         intro.hidden = true;
         unlockSite();
       }
-      revealItems.forEach((item) => item.classList.add('is-visible'));
+      markRevealsVisible();
+      completeCounters();
     }
   }
 

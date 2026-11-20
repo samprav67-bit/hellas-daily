@@ -46,7 +46,8 @@ hellas-daily/
 │   ├── paper.css
 │   ├── sections.css
 │   ├── oracle.css
-│   └── responsive.css
+│   ├── responsive.css
+│   └── motion.css
 └── assets/
     ├── favicon.svg
     ├── fonts/
